@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 255 255 255;
+  --foreground: 27 44 92;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-precise-navy;
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Selection styling matches brand */
+::selection {
+  background-color: #1B2C5C;
+  color: #ffffff;
+}
+
+/* Focus rings — clearly visible for accessibility */
+:focus-visible {
+  outline: 2px solid #1B2C5C;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
