@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { MaterialColumn } from "@/components/MaterialColumn";
-import { MaterialMarquee } from "@/components/MaterialMarquee";
 import { CtaPanel } from "@/components/CtaPanel";
 import { StructuredData } from "@/components/StructuredData";
 import { materialColumns } from "@/content/materials";
@@ -45,8 +44,6 @@ export default function MaterialsPage() {
         title="Biocompatible & Exotic Materials, Mastered."
         subtitle="Eight-plus material classes machined under one roof — implantable polymers, refractory alloys, and the orthopedic workhorses your devices depend on."
       />
-
-      <MaterialMarquee />
 
       <section className="bg-white py-20">
         <Container>

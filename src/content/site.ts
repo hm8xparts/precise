@@ -31,7 +31,6 @@ export const site = {
   certifications: [
     "ISO 13485:2016 Certified",
     "ISO 9001:2015 Certified",
-    "AS9102 FAI Compliant",
   ],
   facility: {
     sqft: 13695,

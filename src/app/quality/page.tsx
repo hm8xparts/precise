@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 
 const title = "Quality Systems — ISO 13485:2016 & ISO 9001:2015";
 const description =
-  "ISO 13485:2016 and ISO 9001:2015 certified quality management. Automated CMM inspection, AS9102 First Article protocols, 100% lot traceability, and a controlled inspection environment.";
+  "ISO 13485:2016 and ISO 9001:2015 certified quality management. Automated CMM inspection, documented First Article Inspection protocols, 100% lot traceability, and a controlled inspection environment.";
 
 export const metadata: Metadata = buildMetadata({
   title,
@@ -18,10 +18,10 @@ export const metadata: Metadata = buildMetadata({
   keywords: [
     "ISO 13485:2016 certified",
     "ISO 9001:2015",
-    "AS9102 FAI",
     "CMM inspection medical",
     "lot traceability medical",
     "validated production",
+    "first article inspection medical",
   ],
 });
 
@@ -63,7 +63,7 @@ const processes = [
     icon: ShieldCheck,
     title: "First Article Inspection",
     detail:
-      "Rigorous AS9102-compliant FAI protocols verify that all engineering, design, and specification requirements are met before serial production begins.",
+      "Documented FAI protocols verify that every engineering, design, and specification requirement is met before serial production begins.",
   },
 ];
 
@@ -88,21 +88,16 @@ export default function QualityPage() {
 
       {/* ISO badge strip */}
       <section className="border-b border-precise-line bg-white py-12">
-        <Container className="grid gap-6 lg:grid-cols-3">
+        <Container className="grid gap-6 lg:grid-cols-2">
           <CertCard
             heading="ISO 13485:2016"
             sub="Medical Device Certified"
-            detail="Dedicated medical-device quality management system covering design, manufacturing, and post-production controls."
+            detail="Dedicated medical-device quality management system covering design, manufacturing, and post-production controls — with certified ISO 13485 lead auditors on staff."
           />
           <CertCard
             heading="ISO 9001:2015"
             sub="Quality Management Systems"
-            detail="Foundational quality management certification ensuring consistency, continuous improvement, and customer focus."
-          />
-          <CertCard
-            heading="AS9102 FAI"
-            sub="First Article Compliant"
-            detail="Aerospace-grade First Article Inspection protocols applied to every medical-device program."
+            detail="Foundational quality management certification ensuring consistency, continuous improvement, and customer focus across every program."
           />
         </Container>
       </section>

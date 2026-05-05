@@ -35,13 +35,13 @@ export function NavBar() {
           : "border-transparent bg-white",
       )}
     >
-      <Container className="flex h-16 items-center justify-between">
+      <Container className="flex h-20 items-center justify-between md:h-24">
         <Link
           href="/"
           aria-label={`${site.shortName} — home`}
           className="flex items-center gap-3"
         >
-          <PreciseLogo className="h-9 w-auto" />
+          <PreciseLogo className="h-10 w-auto md:h-12" />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">

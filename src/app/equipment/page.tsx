@@ -11,7 +11,7 @@ import { buildMetadata } from "@/lib/seo";
 
 const title = "Equipment Roster — 13,695 sq ft Facility in Clifton, NJ";
 const description =
-  "State-of-the-art equipment roster: 7 CNC mills, 5 CNC turning centers, 2 Wire EDMs, 1 Sinker EDM, 3 surface grinders, 2 CMMs, 2 laser stations, and 10 CAD design seats.";
+  "State-of-the-art equipment roster — Okuma 5-axis milling, Bridgeport 4-axis, HAAS dual-spindle turning, Mitsubishi Wire EDM, sinker EDM, Mitsui grinding, Mitutoyo Crysta-Apex CMMs, and Trumpf laser marking.";
 
 export const metadata: Metadata = buildMetadata({
   title,

@@ -31,7 +31,6 @@ export const metadata: Metadata = {
     "Wire EDM medical",
     "Clifton NJ CNC",
     "surgical instrument manufacturing",
-    "AS9102 FAI",
   ],
   authors: [{ name: site.name }],
   creator: site.name,

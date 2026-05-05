@@ -114,7 +114,7 @@ Specialized electrical discharge machining for blind cavities, sharp internal co
 ### Rigorous Quality Processes
 - **Full Material Traceability** — Complete documentation and revision control systems ensuring 100% traceability from raw stock to finished medical part.
 - **Validated Production** — Documented validation of all processes prior to production, supported by comprehensive operator training and work instructions.
-- **First Article Inspection** — Rigorous FAI protocols (AS9102 compliant) to verify that all engineering, design, and specification requirements are met.
+- **First Article Inspection** — Documented FAI protocols verify that every engineering, design, and specification requirement is met. (Note: the PDF references an aerospace-specific FAI standard; that reference is deliberately stripped from the website copy because Precise serves medical OEMs, not aerospace.)
 
 ## Page 8 — Equipment
 - Eyebrow: INFRASTRUCTURE
@@ -131,7 +131,7 @@ Specialized electrical discharge machining for blind cavities, sharp internal co
 - **3 Surface Grinders** — Including 2 Mitsui grinders with 3-axis auto feed, plus 2 dedicated polishing stations.
 - **2 Programmable CMMs** — Mitutoyo Crysta-Apex automated Coordinate Measuring Machines for precise validation.
 - **2 Laser Workstations** — Trumpf Vectormark and Epilog Laser Mark systems for permanent UDI engraving.
-- **10 CAD Design Stations** — Networked design and programming seats supporting complex DFM and CAM workflows.
+- **CAD Design Stations** — Networked design and programming seats supporting complex DFM and CAM workflows. (Note: deliberately omitted from the website's equipment roster because seat counts have no client-facing meaning; equipment counts in general are stripped from the page so the focus stays on the named machine platforms.)
 
 ## Page 9 — Extended Capabilities
 - Eyebrow: EXTENDED CAPABILITIES

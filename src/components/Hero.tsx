@@ -4,7 +4,13 @@ import { Container } from "./Container";
 import { GridBackground } from "./GridBackground";
 import { SectionEyebrow } from "./SectionEyebrow";
 import { TrustBar } from "./TrustBar";
-import { PreciseLogo } from "./PreciseLogo";
+
+const heroStats = [
+  { value: "±0.0004\"", label: "Tolerance" },
+  { value: "ISO 13485:2016", label: "Medical Device Certified" },
+  { value: "25+ Years", label: "Orthopedic Experience" },
+  { value: "100%", label: "Lot Traceability" },
+];
 
 export function Hero() {
   return (
@@ -45,19 +51,30 @@ export function Hero() {
         </div>
 
         <div className="relative lg:col-span-5">
-          <div className="relative h-full min-h-[360px] overflow-hidden rounded-lg bg-precise-navy">
+          <div className="relative h-full overflow-hidden rounded-lg bg-precise-navy">
             <div
               aria-hidden="true"
               className="absolute inset-0 bg-precise-grid-dark bg-grid opacity-60 [mask-image:radial-gradient(ellipse_at_center,_black_55%,_transparent_100%)]"
             />
-            <div className="relative flex h-full min-h-[360px] items-center justify-center p-10">
-              <PreciseLogo
-                variant="light"
-                className="h-auto w-full max-w-[360px]"
-              />
+            <div className="relative flex h-full flex-col gap-6 p-8 md:p-10">
+              <div className="text-xs font-semibold uppercase tracking-eyebrow text-precise-green">
+                By the numbers
+              </div>
+              <dl className="grid flex-1 grid-cols-2 gap-x-6 gap-y-8">
+                {heroStats.map((s) => (
+                  <div key={s.label} className="border-l-2 border-precise-green/70 pl-4">
+                    <dt className="text-[10px] font-semibold uppercase tracking-eyebrow text-precise-green">
+                      {s.label}
+                    </dt>
+                    <dd className="mt-1 text-2xl font-black leading-tight text-white sm:text-3xl">
+                      {s.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </div>
             <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-precise-navy-dark/80 px-6 py-3 text-xs uppercase tracking-eyebrow text-white/70">
-              ±0.0004&quot; tolerance · 100% lot traceability · Cleanroom-ready finishes
+              Cleanroom-ready finishes · Zero China dependency · Made in USA
             </div>
           </div>
         </div>
