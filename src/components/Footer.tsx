@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, FileDown, HelpCircle } from "lucide-react";
 import { Container } from "./Container";
 import { PreciseLogo } from "./PreciseLogo";
 import { nav, site } from "@/content/site";
@@ -11,7 +11,7 @@ export function Footer() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-0 bg-precise-grid-dark bg-grid opacity-50 [mask-image:radial-gradient(ellipse_at_center,_black_50%,_transparent_100%)]"
       />
-      <Container className="relative grid gap-12 py-16 lg:grid-cols-4">
+      <Container className="relative grid gap-12 py-16 lg:grid-cols-5">
         <div className="lg:col-span-2">
           <Link href="/" aria-label={`${site.shortName} — home`} className="inline-block">
             <PreciseLogo variant="light" className="text-2xl" />
@@ -48,6 +48,40 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-xs font-semibold uppercase tracking-eyebrow text-white/60">
+            Resources
+          </h3>
+          <ul className="mt-4 space-y-2 text-sm">
+            <li>
+              <Link
+                href="/faq"
+                className="flex items-center gap-2 text-white/85 transition-colors hover:text-white"
+              >
+                <HelpCircle className="h-4 w-4 text-precise-green" aria-hidden="true" />
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <a
+                href="/precise-capabilities.pdf"
+                className="flex items-center gap-2 text-white/85 transition-colors hover:text-white"
+              >
+                <FileDown className="h-4 w-4 text-precise-green" aria-hidden="true" />
+                Capabilities Deck (PDF)
+              </a>
+            </li>
+            <li>
+              <Link
+                href="/contact"
+                className="text-white/85 transition-colors hover:text-white"
+              >
+                Request a Quote
+              </Link>
+            </li>
           </ul>
         </div>
 

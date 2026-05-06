@@ -44,7 +44,7 @@ export function NavBar() {
           <PreciseLogo className="text-xl md:text-2xl" />
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
           {nav.map((item) => (
             <Link
               key={item.href}

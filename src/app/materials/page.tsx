@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 
 const title = "Medical Materials — Titanium, PEEK, CoCr, Inconel";
 const description =
-  "Implantable, autoclavable, and engineering materials for medical devices: Titanium Grade 2/5/23, PEEK, UHMWPE, CoCr, Inconel, Tantalum, ULTEM, and more. Validated processing for Class VI polymers.";
+  "Material capabilities for medical-device CNC machining — Titanium Grade 2/5/23, Cobalt Chrome, PEEK, UHMWPE, Tantalum, Inconel, and more. ISO 13485:2016 certified, full lot traceability.";
 
 export const metadata: Metadata = buildMetadata({
   title,
@@ -46,12 +46,10 @@ export default function MaterialsPage() {
       />
 
       <section className="bg-white py-20">
-        <Container>
-          <div className="grid gap-6 lg:grid-cols-3">
-            {materialColumns.map((col) => (
-              <MaterialColumn key={col.heading} column={col} />
-            ))}
-          </div>
+        <Container className="space-y-16">
+          {materialColumns.map((col) => (
+            <MaterialColumn key={col.heading} column={col} />
+          ))}
         </Container>
       </section>
 
