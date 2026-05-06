@@ -10,14 +10,17 @@ type Props = {
 };
 
 /**
- * Precise crosshair + wordmark, rebuilt as inline SVG.
- * Visual reference: /public/logo/precise-logo-master.png.
+ * Precise crosshair + horizontal wordmark.
  *
- * Horizontal lockup so the wordmark stays legible at navbar/footer
- * sizes (~48px tall). The stacked composition from the master PNG is
- * reserved for hero/large-format placements where size isn't a
- * constraint — set `showWordmark={false}` to render the crosshair P
- * mark on its own.
+ * Sizing: the lockup scales off the wrapper's font-size. The "PRECISE"
+ * wordmark renders at 1em, the tagline at 0.32em, and the crosshair
+ * mark at 1.6em square — so a 1.875rem font-size (= 30px) produces a
+ * lockup that's ~48px tall (which is what the navbar and footer use).
+ *
+ * Why HTML text instead of SVG <text>: SVG italic glyph metrics differ
+ * across rendering engines, which made the previous SVG-only lockup
+ * clip the right edge of "PRECISE" inside its viewBox. HTML text picks
+ * up the loaded Inter font and never clips.
  */
 export function PreciseLogo({
   variant = "dark",
@@ -25,106 +28,101 @@ export function PreciseLogo({
   className,
   ariaLabel = "Precise Components & Tool Design",
 }: Props) {
+  if (!showWordmark) {
+    return (
+      <CrosshairSvg
+        variant={variant}
+        ariaLabel={ariaLabel}
+        className={cn("aspect-square", className)}
+      />
+    );
+  }
+
+  const navyClass =
+    variant === "dark" ? "text-precise-navy" : "text-white";
+  const taglineClass =
+    variant === "dark" ? "text-precise-gray" : "text-white/80";
+  const dividerClass =
+    variant === "dark" ? "bg-precise-navy" : "bg-white/80";
+
+  return (
+    <span
+      role="img"
+      aria-label={ariaLabel}
+      className={cn(
+        "inline-flex items-center gap-[0.35em] whitespace-nowrap leading-none",
+        className,
+      )}
+    >
+      {/* Crosshair mark — square, ~1.6× the wordmark's font-size */}
+      <CrosshairSvg
+        variant={variant}
+        ariaLabel=""
+        className="h-[1.6em] w-[1.6em] shrink-0"
+      />
+
+      {/* HTML wordmark + tagline; sizes are em-based off the wrapper */}
+      <span className="flex flex-col leading-none">
+        <span
+          className={cn(
+            "font-black italic tracking-[0.01em]",
+            navyClass,
+          )}
+          style={{ fontSize: "1em" }}
+        >
+          PRECISE
+        </span>
+        <span
+          aria-hidden="true"
+          className={cn("my-[0.12em] h-[0.06em] w-full", dividerClass)}
+        />
+        <span
+          className={cn(
+            "font-semibold uppercase tracking-[0.22em]",
+            taglineClass,
+          )}
+          style={{ fontSize: "0.32em" }}
+        >
+          Components &amp; Tool Design
+        </span>
+      </span>
+    </span>
+  );
+}
+
+function CrosshairSvg({
+  variant,
+  ariaLabel,
+  className,
+}: {
+  variant: Variant;
+  ariaLabel: string;
+  className?: string;
+}) {
   const navy = variant === "dark" ? "#1B2C5C" : "#FFFFFF";
   const blue = variant === "dark" ? "#3F5891" : "rgba(255,255,255,0.65)";
   const gray = variant === "dark" ? "#6B6E72" : "rgba(255,255,255,0.85)";
-  const tagline = variant === "dark" ? "#6B6E72" : "rgba(255,255,255,0.75)";
-  const divider = variant === "dark" ? "#1B2C5C" : "rgba(255,255,255,0.85)";
-
-  if (!showWordmark) {
-    return (
-      <svg
-        role="img"
-        aria-label={ariaLabel}
-        viewBox="0 0 200 200"
-        xmlns="http://www.w3.org/2000/svg"
-        className={cn("select-none", className)}
-      >
-        <CrosshairMark navy={navy} blue={blue} gray={gray} cx={100} cy={100} />
-      </svg>
-    );
-  }
 
   return (
     <svg
       role="img"
-      aria-label={ariaLabel}
-      viewBox="0 0 600 180"
+      aria-label={ariaLabel || undefined}
+      aria-hidden={ariaLabel ? undefined : true}
+      viewBox="0 0 200 200"
       xmlns="http://www.w3.org/2000/svg"
       className={cn("select-none", className)}
     >
-      {/* Crosshair mark on the left, vertically centered */}
-      <CrosshairMark navy={navy} blue={blue} gray={gray} cx={90} cy={90} />
-
-      {/* PRECISE wordmark — italic, bold, geometric */}
-      <text
-        x={195}
-        y={92}
-        dominantBaseline="middle"
-        fontFamily="Inter, system-ui, sans-serif"
-        fontWeight={900}
-        fontStyle="italic"
-        fontSize={108}
-        letterSpacing={2}
-        fill={navy}
-      >
-        PRECISE
-      </text>
-
-      {/* Divider rule */}
-      <line
-        x1={195}
-        y1={132}
-        x2={585}
-        y2={132}
-        stroke={divider}
-        strokeWidth={3}
-      />
-
-      {/* Tagline */}
-      <text
-        x={195}
-        y={159}
-        fontFamily="Inter, system-ui, sans-serif"
-        fontWeight={600}
-        fontSize={22}
-        letterSpacing={5.5}
-        fill={tagline}
-      >
-        COMPONENTS &amp; TOOL DESIGN
-      </text>
-    </svg>
-  );
-}
-
-function CrosshairMark({
-  navy,
-  blue,
-  gray,
-  cx,
-  cy,
-}: {
-  navy: string;
-  blue: string;
-  gray: string;
-  cx: number;
-  cy: number;
-}) {
-  return (
-    <g>
       {/* Outer crosshair circle */}
-      <circle cx={cx} cy={cy} r={78} fill="none" stroke={gray} strokeWidth={5} />
+      <circle cx={100} cy={100} r={78} fill="none" stroke={gray} strokeWidth={6} />
       {/* Tick marks */}
-      <line x1={cx - 96} y1={cy} x2={cx - 70} y2={cy} stroke={gray} strokeWidth={5} strokeLinecap="round" />
-      <line x1={cx + 70} y1={cy} x2={cx + 96} y2={cy} stroke={gray} strokeWidth={5} strokeLinecap="round" />
-      <line x1={cx} y1={cy - 96} x2={cx} y2={cy - 70} stroke={gray} strokeWidth={5} strokeLinecap="round" />
-      <line x1={cx} y1={cy + 70} x2={cx} y2={cy + 96} stroke={gray} strokeWidth={5} strokeLinecap="round" />
+      <line x1={4} y1={100} x2={30} y2={100} stroke={gray} strokeWidth={6} strokeLinecap="round" />
+      <line x1={170} y1={100} x2={196} y2={100} stroke={gray} strokeWidth={6} strokeLinecap="round" />
+      <line x1={100} y1={4} x2={100} y2={30} stroke={gray} strokeWidth={6} strokeLinecap="round" />
+      <line x1={100} y1={170} x2={100} y2={196} stroke={gray} strokeWidth={6} strokeLinecap="round" />
 
       {/* Letter P — italic, with overlapping blue accent */}
-      <g transform={`translate(${cx - 38}, ${cy - 50})`}>
-        {/* Blue overlap shape (italic slash on the left) */}
+      <g transform="translate(62, 50)">
         <path d="M 4 100 L 30 0 L 46 0 L 20 100 Z" fill={blue} />
-        {/* Main P body */}
         <path
           d="M 16 0
              L 56 0
@@ -143,7 +141,7 @@ function CrosshairMark({
           fill={navy}
         />
       </g>
-    </g>
+    </svg>
   );
 }
 

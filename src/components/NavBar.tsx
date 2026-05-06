@@ -39,9 +39,9 @@ export function NavBar() {
         <Link
           href="/"
           aria-label={`${site.shortName} — home`}
-          className="flex items-center gap-3"
+          className="flex items-center"
         >
-          <PreciseLogo className="h-10 w-auto md:h-12" />
+          <PreciseLogo className="text-xl md:text-2xl" />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">

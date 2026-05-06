@@ -14,7 +14,7 @@ export function Footer() {
       <Container className="relative grid gap-12 py-16 lg:grid-cols-4">
         <div className="lg:col-span-2">
           <Link href="/" aria-label={`${site.shortName} — home`} className="inline-block">
-            <PreciseLogo variant="light" className="h-12 w-auto" />
+            <PreciseLogo variant="light" className="text-2xl" />
           </Link>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-white/70">
             Tight-tolerance components for medical devices — orthopedic

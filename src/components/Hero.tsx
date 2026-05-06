@@ -5,11 +5,22 @@ import { GridBackground } from "./GridBackground";
 import { SectionEyebrow } from "./SectionEyebrow";
 import { TrustBar } from "./TrustBar";
 
-const heroStats = [
-  { value: "±0.0004\"", label: "Tolerance" },
-  { value: "ISO 13485:2016", label: "Medical Device Certified" },
-  { value: "25+ Years", label: "Orthopedic Experience" },
-  { value: "100%", label: "Lot Traceability" },
+type HeroStat = {
+  label: string;
+  /** Single-line headline value (preferred). */
+  value?: string;
+  /** Two stacked headline values (e.g. dual ISO certifications). */
+  values?: string[];
+};
+
+const heroStats: HeroStat[] = [
+  { label: "Tolerance", value: "±0.0004\"" },
+  {
+    label: "Quality Certified",
+    values: ["ISO 13485:2016", "ISO 9001:2015"],
+  },
+  { label: "Orthopedic Experience", value: "25+ Years" },
+  { label: "Lot Traceability", value: "100%" },
 ];
 
 export function Hero() {
@@ -56,24 +67,37 @@ export function Hero() {
               aria-hidden="true"
               className="absolute inset-0 bg-precise-grid-dark bg-grid opacity-60 [mask-image:radial-gradient(ellipse_at_center,_black_55%,_transparent_100%)]"
             />
-            <div className="relative flex h-full flex-col gap-6 p-8 md:p-10">
+            <div className="relative flex h-full flex-col items-center justify-center gap-8 px-6 py-12 pb-20 md:px-10 md:py-14 md:pb-24">
               <div className="text-xs font-semibold uppercase tracking-eyebrow text-precise-green">
-                By the numbers
+                By the Numbers
               </div>
-              <dl className="grid flex-1 grid-cols-2 gap-x-6 gap-y-8">
+              <dl className="grid w-full max-w-md grid-cols-2 gap-x-8 gap-y-10">
                 {heroStats.map((s) => (
                   <div key={s.label} className="border-l-2 border-precise-green/70 pl-4">
                     <dt className="text-[10px] font-semibold uppercase tracking-eyebrow text-precise-green">
                       {s.label}
                     </dt>
-                    <dd className="mt-1 text-2xl font-black leading-tight text-white sm:text-3xl">
-                      {s.value}
-                    </dd>
+                    {s.values ? (
+                      <dd className="mt-2 space-y-0.5 leading-tight text-white">
+                        {s.values.map((v) => (
+                          <div
+                            key={v}
+                            className="text-lg font-black sm:text-xl"
+                          >
+                            {v}
+                          </div>
+                        ))}
+                      </dd>
+                    ) : (
+                      <dd className="mt-2 text-2xl font-black leading-tight text-white sm:text-3xl">
+                        {s.value}
+                      </dd>
+                    )}
                   </div>
                 ))}
               </dl>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-precise-navy-dark/80 px-6 py-3 text-xs uppercase tracking-eyebrow text-white/70">
+            <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-precise-navy-dark/80 px-6 py-3 text-center text-xs uppercase tracking-eyebrow text-white/70">
               Cleanroom-ready finishes · Zero China dependency · Made in USA
             </div>
           </div>
