@@ -183,5 +183,5 @@ Specialized electrical discharge machining for blind cavities, sharp internal co
 ### Canonical Contact Info (overrides PDF)
 - Address: 10 Clifton Blvd #A4, Clifton, NJ 07011
 - Phone: (973) 928-2928
-- Email: sales@precisecomponents.com (NOT the personal email in PDF)
+- Email: sales@precisecomponent.com (NOT the personal email in PDF)
 - Hours: Monday–Friday, 8:00 AM – 5:00 PM ET

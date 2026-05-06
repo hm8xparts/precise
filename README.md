@@ -71,7 +71,7 @@ public/
 - **No** facility, machine, team, founder, inspection-room, cleanroom, or stock photography — anywhere, ever.
 - **No** personnel names. The PDF lists a founder; the site uses institutional language only.
 - Canonical contact info — keep these in sync via `src/content/site.ts`:
-  - `sales@precisecomponents.com`
+  - `sales@precisecomponent.com`
   - `(973) 928-2928`
   - `10 Clifton Blvd #A4, Clifton, NJ 07011`
   - Mon–Fri, 8 AM – 5 PM ET
@@ -90,25 +90,25 @@ public/
 
 1. **Push to GitHub** (or connect via the Vercel CLI).
 2. **Import the repo** at https://vercel.com/new. Vercel auto-detects Next.js — no overrides needed.
-3. **Custom domain.** Vercel → Project → Settings → Domains → add `precisecomponents.com` and `www.precisecomponents.com`. Point your DNS as instructed (typically `A` to Vercel's IP and a `CNAME` for `www`). The `vercel.json` redirects `www.` → apex; flip it if you prefer the inverse — just update the `vercel.json` rule.
+3. **Custom domain.** The canonical production domain is `www.precisecomponent.com` (singular `component`, with `www`). In Vercel → Project → Settings → Domains → add both `www.precisecomponent.com` (primary) and `precisecomponent.com` (apex). Point your DNS as instructed (typically `A` to Vercel's IP for the apex and a `CNAME` for `www`). The `vercel.json` redirects the apex → `www` so every request lands on the canonical URL. The plural-spelling domain `precisecomponents.com` is **not** attached to this project — once it's owned, configure a registrar-level forward to `https://www.precisecomponent.com`.
 4. **Set environment variables** (Settings → Environment Variables). See `.env.example` for the full list:
-   - `NEXT_PUBLIC_SITE_URL=https://precisecomponents.com`
+   - `NEXT_PUBLIC_SITE_URL=https://www.precisecomponent.com`
    - `NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX` (once GA4 property exists)
    - `GOOGLE_SITE_VERIFICATION=…` (once you start Search Console verification, see below)
    - `BING_SITE_VERIFICATION=…`
    - `RESEND_API_KEY=…` and the two Resend email vars (once form is wired)
 5. **Redeploy** after setting env vars so they take effect.
 
-The `vercel.json` already configures security headers (HSTS, X-Frame-Options DENY, no-sniff, strict-origin-when-cross-origin Referrer-Policy, restrictive Permissions-Policy) and the `www → apex` redirect.
+The `vercel.json` already configures security headers (HSTS, X-Frame-Options DENY, no-sniff, strict-origin-when-cross-origin Referrer-Policy, restrictive Permissions-Policy) and the `apex → www` redirect.
 
 ## Google Search Console verification
 
-1. Open https://search.google.com/search-console and add `precisecomponents.com` as a **Domain property** (preferred — covers all subdomains via DNS) or as a **URL prefix** property.
+1. Open https://search.google.com/search-console and add `www.precisecomponent.com` as a **Domain property** (preferred — covers all subdomains via DNS) or as a **URL prefix** property.
 2. **Domain property** → use the DNS TXT verification record with your domain registrar.
 3. **URL prefix property** → choose the "HTML tag" method, copy the `content="…"` value out of the `<meta name="google-site-verification" content="…">` snippet.
 4. Paste that value into `GOOGLE_SITE_VERIFICATION` in Vercel's env vars and redeploy. The `metadata.verification.google` field in `src/app/layout.tsx` reads from that env var.
 5. Click **Verify** in Search Console.
-6. Submit `https://precisecomponents.com/sitemap.xml` from the Sitemaps section.
+6. Submit `https://www.precisecomponent.com/sitemap.xml` from the Sitemaps section.
 7. (Optional) Same flow for **Bing Webmaster Tools** — paste the `msvalidate.01` value into `BING_SITE_VERIFICATION`.
 
 ## RFQ form integration (TODO)

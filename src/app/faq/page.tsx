@@ -63,7 +63,7 @@ export default function FaqPage() {
       <PageHeader
         eyebrow="Frequently Asked Questions"
         title="Answers for medical OEM buyers and engineers."
-        subtitle="Quick answers to the questions our quoting team hears most. Don't see yours? Email sales@precisecomponents.com or use the RFQ form."
+        subtitle="Quick answers to the questions our quoting team hears most. Don't see yours? Email sales@precisecomponent.com or use the RFQ form."
       />
 
       {/* Section nav (anchors) */}

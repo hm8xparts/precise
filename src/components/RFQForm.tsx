@@ -229,8 +229,8 @@ export function RFQForm() {
           <span>
             We couldn&apos;t submit your request{errorMessage ? ` (${errorMessage})` : ""}.
             Please try again or email{" "}
-            <a href="mailto:sales@precisecomponents.com" className="font-semibold underline">
-              sales@precisecomponents.com
+            <a href="mailto:sales@precisecomponent.com" className="font-semibold underline">
+              sales@precisecomponent.com
             </a>
             .
           </span>

@@ -16,7 +16,7 @@ export const faqSections: FaqSection[] = [
     items: [
       {
         q: "Do you sign mutual NDAs?",
-        a: "Yes. We sign mutual confidentiality agreements as a standard first step on every project. We can work from your NDA template or provide ours on request — email sales@precisecomponents.com to receive a copy before sharing CAD files.",
+        a: "Yes. We sign mutual confidentiality agreements as a standard first step on every project. We can work from your NDA template or provide ours on request — email sales@precisecomponent.com to receive a copy before sharing CAD files.",
       },
       {
         q: "What file formats do you accept for RFQs?",
@@ -42,7 +42,7 @@ export const faqSections: FaqSection[] = [
     items: [
       {
         q: "Are you ISO certified?",
-        a: "Yes — we are certified to both ISO 13485:2016 (medical devices quality management) and ISO 9001:2015 (general quality management). Both certificates are available on request via sales@precisecomponents.com.",
+        a: "Yes — we are certified to both ISO 13485:2016 (medical devices quality management) and ISO 9001:2015 (general quality management). Both certificates are available on request via sales@precisecomponent.com.",
       },
       {
         q: "What is the difference between ISO 13485 and ISO 9001?",

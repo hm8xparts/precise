@@ -1,14 +1,14 @@
 export const site = {
   name: "Precise Components & Tool Design",
   shortName: "Precise Components",
-  domain: "precisecomponents.com",
+  domain: "www.precisecomponent.com",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://precisecomponents.com",
+    "https://www.precisecomponent.com",
   tagline: "Precision Manufacturing for Medical Devices",
   description:
     "ISO 13485:2016 certified precision CNC manufacturer in Clifton, NJ. Tight-tolerance components for medical devices — orthopedic implants, surgical instruments, robotic navigation, diagnostics.",
-  email: "sales@precisecomponents.com",
+  email: "sales@precisecomponent.com",
   phone: "(973) 928-2928",
   phoneE164: "+1-973-928-2928",
   address: {
